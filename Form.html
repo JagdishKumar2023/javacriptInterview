@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Form Example</title>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+
+      <label for="message">Message:</label><br />
+      <textarea id="message" name="message" rows="4" cols="50"></textarea
+      ><br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      // Access the form element
+      const form = document.getElementById("myForm");
+
+      // Add an event listener for form submission
+      form.addEventListener("submit", function (event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Access form input values
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const messageInput = document.getElementById("message");
+
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const message = messageInput.value;
+
+        // Validate the form inputs (example validation)
+        if (
+          name.trim() === "" ||
+          email.trim() === "" ||
+          message.trim() === ""
+        ) {
+          alert("Please fill in all fields.");
+          return;
+        }
+
+        // Perform further actions like sending form data to a server
+        // For demonstration purposes, let's just log the form data
+        console.log("Name:", name);
+        console.log("Email:", email);
+        console.log("Message:", message);
+
+        // Clear the form inputs after submission
+        nameInput.value = "";
+        emailInput.value = "";
+        messageInput.value = "";
+      });
+    </script>
+  </body>
+</html>
